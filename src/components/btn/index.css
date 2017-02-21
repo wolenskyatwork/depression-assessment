@@ -1,0 +1,12 @@
+.btn {
+  border: 1.5px solid white;
+  background-color: transparent;
+  color: white;
+  font-size: 50px;
+  padding: 20px 10px;
+}
+
+.btn:hover {
+  background-color: purple;
+  cursor: pointer;
+}

@@ -22,9 +22,12 @@ describe('<Btn />', () => {
   it('adds additional classes', () => {
     const text = 'Sign Me Up!';
     const wrapper = shallow(<Btn text={ text } classes='btn--dismiss'/>);
-    const classes = wrapper.find('.btn--dismiss');
 
-    expect(classes, 'class not added').to.have.lengthOf(1);
+    expect(wrapper.hasClass('btn--dismiss')).to.equal(true);
+  });
+
+  xit('calls the passed in onClick function', () => {
+
   });
 
 });

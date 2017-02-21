@@ -1,0 +1,12 @@
+.form {
+  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 80%;
+}
+
+.input--wrapper {
+  display: flex;
+  flex-direction: column;
+}

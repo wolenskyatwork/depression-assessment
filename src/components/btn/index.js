@@ -1,28 +1,24 @@
 import React, { PropTypes } from 'react';
+import './index.css';
 
 const propTypes = {
   classes: PropTypes.string,
   text: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
 };
 
-const defaultProps = {};
+const defaultProps = {
+  classes: '',
+}
 
 class Btn extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
-  componentDidMount() {
-
-  }
-
   render() {
-    const { classes, text } = this.props;
-
-    const className = 'btn' + classes;
+    const { classes, text, onClick } = this.props;
+    const buttonClasses = 'btn ' + classes;
 
     return (
-      <button className={className}>{ text }</button>
+      
+      <button className={buttonClasses} onClick={ onClick }>{ text }</button>
     );
   }
 }

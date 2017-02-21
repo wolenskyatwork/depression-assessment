@@ -26,19 +26,4 @@ describe('<Signup />', () => {
 
     expect(dismiss, 'dismiss button not found').to.have.lengthOf(1);
   });
-
-  it('renders correctly on small screens', () => {
-    const wrapper = shallow(<Signup />);
-    const smallClass = wrapper.find('signup--small');
-
-    expect(smallClass, 'small class styles not applied').to.have.lengthOf(1);
-  });
-
-  it('renders correctly on large screens', () => {
-    const wrapper = shallow(<Signup />);
-    const smallClass = wrapper.find('signup--small');
-
-    expect(smallClass, 'small class styles are applied').to.have.lengthOf(0);
-  });
-
 });
