@@ -13,20 +13,27 @@ describe('<Form />', () => {
   });
 
   it('has at least one input field', () => {
-    const input = wrapper.find('.input');
+    const field = wrapper.find('.field');
 
     expect(wrapper.children(), 'child contents not found').to.not.be.empty;
-    expect(input, 'no input field components found').to.have.length.of.at.least(1);
+    expect(field, 'no input field components found').to.have.length.of.at.least(1);
   });
 
-  it('has a name field', () => {
+  it('has a password field', () => {
+    const password = wrapper.find('#password');
 
+    expect(password).to.have.lengthOf(1);
   });
 
   it('has an email field', () => {
+    const email = wrapper.find('#email');
+
+    expect(email).to.have.lengthOf(1);
   });
 
   it('has a submit button', () => {
-  });
+    const submit = wrapper.find('button');
 
+    expect(submit).to.have.lengthOf(1);
+  });
 });

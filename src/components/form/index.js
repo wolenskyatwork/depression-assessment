@@ -1,5 +1,6 @@
 import React from 'react';
 import Btn from '../btn';
+import Field from './field';
 import './index.css';
 
 class Form extends React.Component {
@@ -31,24 +32,7 @@ class Form extends React.Component {
   render() {
     return (
       <form className='form'>
-        <div className='input--wrapper'>
-          <label className='input--label' for='email'>
-            email
-          </label>
-          <input
-            id="email"
-            name="email"
-            onChange={ this.handleChange } />
-          <div id='email-error' className='input--error'>Error message here</div>
-        </div>
-        <div className-='input--wrapper'>
-          <label>
-            password
-            <input
-              name="password"
-              onChange={ this.handleChange } />
-          </label>
-        </div>
+        <Field name='email' onChange={ this.handleChange }/>
         <Btn text="Sign Up!" onClick={ this.handleSubmit }/>
       </form>
     );
