@@ -26,6 +26,7 @@ class Field extends React.Component {
 
   render() {
     const { name, onChange, errorMessage } = this.props;
+    const { dirty } = this.state;
 
     return (
       <div className='field'>
@@ -36,7 +37,7 @@ class Field extends React.Component {
           id={ name }
           name={ name }
           onChange={ onChange } />
-        { errorMessage &&
+        { errorMessage && dirty &&
           <div id={`${name}--error`} className='field__error'>{ errorMessage }</div>
         }
       </div>

@@ -4,7 +4,7 @@ import Field from './field';
 import './index.css';
 
 const propTypes = {
-  inputs: PropTypes.arrayOf(
+  inputs: PropTypes.objectOf(
     PropTypes.shape({
       name: PropTypes.string,
       regex: PropTypes.regexp,
@@ -20,15 +20,20 @@ class Form extends React.Component {
 
     const { inputs } = this.props;
 
-    let stateObject = {
-      isInvalid: true,
-    };
+    this.inputsArray = Object.values(inputs);
 
-    inputs.forEach(value => {
-      const { name, defaultValue } = value;
+    let stateObject = {};
 
-      stateObject[name] = defaultValue;
-    });
+    for (var formInput in inputs) {
+      if(inputs.hasOwnProperty(formInput)) {
+        const { name, defaultValue } = inputs[formInput];
+
+        stateObject[name] = {
+          value: defaultValue,
+          isValid: false,
+        }
+      }
+    }
 
     this.state = stateObject;
 
@@ -36,17 +41,11 @@ class Form extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
-  runValidation() {
+  validateInput(name, value) {
     const { inputs } = this.props;
-    const isInvalid = inputs.some(currentValue => {
-      const { name, regex } = currentValue;
+    const regex = inputs[name].regex;
 
-      return !regex.test(this.state[name]);
-    });
-
-    this.setState({
-      isInvalid: isInvalid,
-    });
+    return regex.test(value);
   }
 
   handleSubmit(event) {
@@ -58,18 +57,24 @@ class Form extends React.Component {
     const { name, value } = event.target;
 
     this.setState({
-      [name]: value,
-    }, this.runValidation);
+      [name]: {
+        value: value,
+        isValid: this.validateInput(name, value),
+      },
+    });
   }
 
   render() {
-    const { inputs } = this.props;
-    const { isInvalid } = this.state;
+    const stateArray = Object.values(this.state);
+
+    const isInvalid = stateArray.reduce((prev, current) => {
+      return prev || !current.isValid;
+    }, false);
 
     return (
       <form className='form'>
         {
-          inputs.map((value, index) => {
+          this.inputsArray.map((value, index) => {
             return <Field key={index} name={value.name} onChange={ this.handleChange } />
           })
         }

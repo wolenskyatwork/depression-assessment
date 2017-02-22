@@ -6,7 +6,7 @@
   padding: 20px 10px;
 }
 
-.btn:hover {
+.btn:hover:not(.btn--isDisabled) {
   background-color: #00BD9D;
   cursor: pointer;
 }
@@ -16,4 +16,9 @@
   height: 70px;
   padding: 10px;
   border: none;
+}
+
+.btn--isDisabled {
+  background-color: grey;
+  color: black;
 }

@@ -7,6 +7,7 @@ const propTypes = {
   text: PropTypes.string,
   onClick: PropTypes.func.isRequired,
   isDismiss: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
 
 const defaultProps = {
@@ -16,15 +17,19 @@ const defaultProps = {
 
 class Btn extends React.Component {
   render() {
-    const { classes, text, onClick, isDismiss } = this.props;
+    const { classes, text, onClick, isDismiss, disabled } = this.props;
     let buttonClasses = 'btn ' + classes;
 
     if (isDismiss) {
       buttonClasses += ' btn--dismiss';
     }
 
+    if (disabled) {
+      buttonClasses += 'btn--isDisabled';
+    }
+
     return (
-      <button className={buttonClasses} onClick={ onClick }>{ text }
+      <button disabled={ disabled } className={ buttonClasses } onClick={ onClick }>{ text }
         { isDismiss && <Delete /> }
       </button>
     );
