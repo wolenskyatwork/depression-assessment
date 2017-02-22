@@ -15,7 +15,7 @@ class Notification extends React.Component {
         <div>
           { text }
         </div>
-        <Btn onClick={ dismissNotification } text='DISMISS' />
+        <Btn onClick={ dismissNotification } isDismiss />
       </div>
     );
   }

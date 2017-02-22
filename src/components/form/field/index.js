@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import './index.css';
 
 const propTypes = {
   onChange: PropTypes.func.isRequired,
@@ -7,6 +8,22 @@ const propTypes = {
 }
 
 class Field extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      dirty: false,
+    };
+  }
+
+  onChange() {
+    const { onChange } = this.props;
+
+    this.setState({
+      dirty: true,
+    }, onChange);
+  }
+
   render() {
     const { name, onChange, errorMessage } = this.props;
 
@@ -19,7 +36,9 @@ class Field extends React.Component {
           id={ name }
           name={ name }
           onChange={ onChange } />
-        <div id={`${name}--error`} className='field__error'>{ errorMessage }</div>
+        { errorMessage &&
+          <div id={`${name}--error`} className='field__error'>{ errorMessage }</div>
+        }
       </div>
     );
   }

@@ -14,3 +14,8 @@
     height: 600px;
   }
 }
+
+.signup__header {
+  display: flex;
+  justify-content: flex-end;
+}

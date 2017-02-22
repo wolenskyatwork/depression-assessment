@@ -1,12 +1,19 @@
 .btn {
-  border: 1.5px solid white;
+  border: 1.5px solid #EFECCA;
   background-color: transparent;
-  color: white;
-  font-size: 50px;
+  color: #EFECCA;
+  font-size: 25px;
   padding: 20px 10px;
 }
 
 .btn:hover {
-  background-color: purple;
+  background-color: #00BD9D;
   cursor: pointer;
+}
+
+.btn--dismiss {
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+  border: none;
 }
