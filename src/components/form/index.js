@@ -75,7 +75,11 @@ class Form extends React.Component {
       <form className='form'>
         {
           this.inputsArray.map((value, index) => {
-            return <Field key={index} name={value.name} onChange={ this.handleChange } />
+            return <Field
+              isValid={this.state[value.name].isValid}
+              key={index} errorMessage={ value.message }
+              name={ value.name }
+              onChange={ this.handleChange } />
           })
         }
         <Btn disabled={ isInvalid } text="Sign Up!" onClick={ this.handleSubmit }/>
