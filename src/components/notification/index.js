@@ -12,7 +12,7 @@ class Notification extends React.Component {
 
     return (
       <div className='notification'>
-        <div>
+        <div className='notification__text'>
           { text }
         </div>
         <Btn onClick={ dismissNotification } isDismiss />

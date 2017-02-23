@@ -25,9 +25,4 @@ describe('<Btn />', () => {
 
     expect(wrapper.hasClass('btn--dismiss')).to.equal(true);
   });
-
-  xit('calls the passed in onClick function', () => {
-
-  });
-
 });

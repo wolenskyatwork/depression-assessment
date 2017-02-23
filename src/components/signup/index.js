@@ -5,8 +5,8 @@ import FORM from './form';
 import './index.css';
 
 const propTypes = {
-  closeModal: PropTypes.func.isRequired,
-  submitForm: PropTypes.func.isRequired,
+  closeModal: PropTypes.func,
+  submitForm: PropTypes.func,
 }
 
 class Signup extends React.Component {

@@ -27,7 +27,7 @@ describe('<Homepage />', () => {
   });
 
   it('recieves a notification successfully', () => {
-    const wrapper = mount(<Homepage />);
+    const wrapper = mount(<Homepage notificationText='I am a notification'/>);
     const notification = wrapper.find('.notification');
 
     expect(notification, 'notification not found').to.have.lengthOf(1);

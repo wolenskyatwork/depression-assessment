@@ -1,17 +1,16 @@
 .signup {
-  border: 1px black solid;
-  position: fixed;
-  background-color: pink;
+  background-color: #F4E5E4;
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: 100%;
+  position: fixed;
+  width: 100%;
 }
 
 @media (min-width: 769px) {
   .signup {
-    width: 768px;
     height: 600px;
+    width: 768px;
   }
 }
 

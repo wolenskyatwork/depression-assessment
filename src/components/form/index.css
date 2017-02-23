@@ -2,8 +2,14 @@
   align-self: center;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   width: 80%;
+}
+
+@media (min-width: 769px) {
+  .form {
+    height: 80%;
+  }
 }
 
 .input--wrapper {

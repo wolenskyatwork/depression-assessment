@@ -1,24 +1,25 @@
 .btn {
-  border: 1.5px solid #EFECCA;
   background-color: transparent;
-  color: #EFECCA;
+  border: 1.5px solid #272727;
+  color: #272727;
   font-size: 25px;
   padding: 20px 10px;
 }
 
 .btn:hover:not(.btn--isDisabled) {
-  background-color: #00BD9D;
+  background-color: #994636;
   cursor: pointer;
 }
 
 .btn--dismiss {
-  width: 70px;
+  border: none;
   height: 70px;
   padding: 10px;
-  border: none;
+  width: 70px;
 }
 
 .btn--isDisabled {
-  background-color: grey;
-  color: black;
+  background-color: #C5BECE;
+  border: none;
+  color: #D4CFDB;
 }

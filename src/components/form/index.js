@@ -20,7 +20,11 @@ class Form extends React.Component {
 
     const { inputs } = this.props;
 
-    this.inputsArray = Object.values(inputs);
+    this.inputsArray = [];
+
+    Object.keys(inputs).forEach(key => {
+      this.inputsArray.push(inputs[key]);
+    });
 
     let stateObject = {};
 
@@ -65,7 +69,11 @@ class Form extends React.Component {
   }
 
   render() {
-    const stateArray = Object.values(this.state);
+    let stateArray = [];
+
+    Object.keys(this.state).forEach(key => {
+      stateArray.push(this.state[key]);
+    });
 
     const isInvalid = stateArray.reduce((prev, current) => {
       return prev || !current.isValid;
@@ -73,6 +81,7 @@ class Form extends React.Component {
 
     return (
       <form className='form'>
+        <div className="form__fields">
         {
           this.inputsArray.map((value, index) => {
             return <Field
@@ -82,6 +91,7 @@ class Form extends React.Component {
               onChange={ this.handleChange } />
           })
         }
+        </div>
         <Btn disabled={ isInvalid } text="Sign Up!" onClick={ this.handleSubmit }/>
       </form>
     );

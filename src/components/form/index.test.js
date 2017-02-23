@@ -3,10 +3,10 @@ import { expect } from 'chai';
 import { mount, shallow } from 'enzyme';
 import sinon from 'sinon';
 import Form from './index';
-
+import FORM from '../signup/form';
 
 describe('<Form />', () => {
-  const wrapper = mount(<Form />);
+  const wrapper = mount(<Form inputs={ FORM } />);
 
   it('renders correctly', () => {
     expect(wrapper).to.have.lengthOf(1);

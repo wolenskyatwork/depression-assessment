@@ -4,10 +4,10 @@ import './index.css';
 
 const propTypes = {
   classes: PropTypes.string,
-  text: PropTypes.string,
-  onClick: PropTypes.func.isRequired,
-  isDismiss: PropTypes.bool,
   disabled: PropTypes.bool,
+  isDismiss: PropTypes.bool,
+  onClick: PropTypes.func,
+  text: PropTypes.string,
 };
 
 const defaultProps = {
@@ -17,7 +17,14 @@ const defaultProps = {
 
 class Btn extends React.Component {
   render() {
-    const { classes, text, onClick, isDismiss, disabled } = this.props;
+    const {
+      classes,
+      disabled,
+      isDismiss,
+      onClick,
+      text,
+    } = this.props;
+
     let buttonClasses = 'btn ' + classes;
 
     if (isDismiss) {
@@ -29,7 +36,7 @@ class Btn extends React.Component {
     }
 
     return (
-      <button disabled={ disabled } className={ buttonClasses } onClick={ onClick }>{ text }
+      <button className={ buttonClasses } disabled={ disabled } onClick={ onClick }>{ text }
         { isDismiss && <Delete /> }
       </button>
     );
