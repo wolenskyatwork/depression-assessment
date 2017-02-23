@@ -29,11 +29,14 @@ class App extends React.Component {
     this.setState({ isModalOpen: false });
   }
 
-  submitForm(email) {
+  submitForm(update) {
+    let emails = this.state.emails.slice(0);
+    emails.push(update.email.value);
+
     this.setState({
       isModalOpen: false,
       notificationText: 'Congrats! You have successfully signed up!',
-      emails: [], // new user functonality
+      emails: emails,
     });
   }
 
@@ -44,17 +47,18 @@ class App extends React.Component {
   }
 
   render() {
-    const { isModalOpen, notificationText } = this.state;
+    const { isModalOpen, notificationText, emails } = this.state;
 
     return (
       <div className="App" >
         <Homepage
+          closeModal={ this.closeModal }
+          dismissNotification={ this.dismissNotification }
+          emails={ emails }
           isModalOpen={ isModalOpen }
           notificationText={ notificationText }
-          closeModal={ this.closeModal }
           openModal={ this.openModal }
           submitForm={ this.submitForm }
-          dismissNotification={ this.dismissNotification }
         />
       </div>
     );

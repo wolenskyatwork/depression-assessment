@@ -81,7 +81,7 @@ class Form extends React.Component {
 
     return (
       <form className='form'>
-        <div className="form__fields">
+        <div className='form__fields'>
         {
           this.inputsArray.map((value, index) => {
             return <Field
@@ -92,7 +92,7 @@ class Form extends React.Component {
           })
         }
         </div>
-        <Btn disabled={ isInvalid } text="Sign Up!" onClick={ this.handleSubmit }/>
+        <Btn disabled={ isInvalid } text='Sign Up!' onClick={ this.handleSubmit }/>
       </form>
     );
   }

@@ -32,11 +32,12 @@ class Btn extends React.Component {
     }
 
     if (disabled) {
-      buttonClasses += 'btn--isDisabled';
+      buttonClasses += ' btn--isDisabled';
     }
 
     return (
-      <button className={ buttonClasses } disabled={ disabled } onClick={ onClick }>{ text }
+      <button className={ buttonClasses } disabled={ disabled } onClick={ onClick }>
+        { text }
         { isDismiss && <Delete /> }
       </button>
     );
