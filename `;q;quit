@@ -1,0 +1,16 @@
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 2a1bcfe..ef19627 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -1,4 +1,10 @@[m
+ Because front-end libraries are limited to React, Webpack, Bootstrap, and JQuery,[m
+ this app uses the App component as the highest level component which maintains the state.[m
+ [m
+[31m-This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).[m
+[32m+[m[32mI focused most heavily on creating a reusable form component when planning and implementing this app.[m
+[32m+[m
+[32m+[m[32mThe general idea is that the App component maintains a state for the entire app, and the form component deals with its own state[m
+[32m+[m[32mwhile the user in interacting w/ the form, but has not submitted. After submit, the App component processes its state given the new information.[m
+[32m+[m
+[32m+[m
+[32m+[m[32mThis project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). This comes with basic functionality and webpack, react, and testing.[m
