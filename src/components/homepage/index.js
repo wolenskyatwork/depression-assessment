@@ -1,55 +1,29 @@
 import React, { PropTypes } from 'react';
 import Btn from '../btn';
-import Signup from '../signup';
-import Notification from '../notification';
 import './index.css';
 
-const propTypes = {
-  emails: PropTypes.array,
-  isModalOpen: PropTypes.bool,
-  notificationText: PropTypes.string,
-  openModal: PropTypes.func,
-  closeModal: PropTypes.func,
-  submitForm: PropTypes.func,
-  dismissNotification: PropTypes.func,
-};
-
 class Homepage extends React.Component {
-  render() {
-    const {
-      closeModal,
-      dismissNotification,
-      emails,
-      isModalOpen,
-      notificationText,
-      openModal,
-      submitForm,
-    } = this.props;
+  componentWillMount() {
+    //dispatch action to get questions
+    //axios.get('http://localhost:3000/bikes/1').
+    //then( function(response) {
+    //  console.log(response);
+    //});
+  }
 
+  render() {
+    console.log(this.props);
+    console.log('TRYING HOMPEAGE');
     return (
       <div className='homepage' >
-        { notificationText &&
-          <Notification dismissNotification={ dismissNotification } text={ notificationText } />
-        }
         <div className='content'>
-          <h1 className='content__header'>Welcome to Sign Up</h1>
-          <Btn onClick={ openModal } text='Sign me up!' />
-          { isModalOpen &&
-            <Signup closeModal={ closeModal } submitForm={ submitForm } />
-          }
-          <h2>People Who Have Signed Up!</h2>
-          { emails.length > 0 ?
-              emails.map((email, index) => {
-                return <div className='content__email' key={ index }>{ email }</div>
-              }) :
-              <div className='content__empty'>Nobody Yet!</div>
-          }
+          <h1 className='content__header'>Hi There</h1>
+          <div>{'Dealing with depression can be hard, but you\'re not alone. Take a quick survey and find out now how to get help. Don\'t worry, the survey is quick and totally anonymous.'}</div>
+          <Btn onClick={ () => console.log('hello') } text='Start here!' />
         </div>
       </div>
     );
   }
 }
-
-Homepage.propTypes = propTypes;
 
 export default Homepage;

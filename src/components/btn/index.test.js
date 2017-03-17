@@ -1,7 +1,6 @@
 import React from 'react';
 import { expect } from 'chai';
 import { mount, shallow } from 'enzyme';
-import sinon from 'sinon';
 import Btn from './index';
 
 describe('<Btn />', () => {
@@ -12,7 +11,7 @@ describe('<Btn />', () => {
   });
 
   it('creates a button given test props', () => {
-    const text = 'Sign Me Up!';
+    const text = 'Let\'s get started!';
     const wrapper = mount(<Btn text={ text } />);
 
     expect(wrapper, 'button not found').to.have.lengthOf(1);
@@ -20,7 +19,7 @@ describe('<Btn />', () => {
   });
 
   it('adds additional classes', () => {
-    const text = 'Sign Me Up!';
+    const text = 'Let\'s get started!';
     const wrapper = shallow(<Btn text={ text } classes='btn--dismiss'/>);
 
     expect(wrapper.hasClass('btn--dismiss')).to.equal(true);

@@ -11,8 +11,13 @@
     "sinon": "^1.17.7"
   },
   "dependencies": {
+    "axios": "^0.15.3",
     "react": "^15.4.2",
-    "react-dom": "^15.4.2"
+    "react-dom": "^15.4.2",
+    "react-redux": "^5.0.3",
+    "react-router": "^4.0.0",
+    "redux": "^3.6.0",
+    "redux-saga": "^0.14.3"
   },
   "scripts": {
     "start": "react-scripts start",
