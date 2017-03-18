@@ -1,7 +1,6 @@
 import React from 'react';
 import Btn from '../btn';
 import './index.css';
-import axios from 'axios';
 
 class Homepage extends React.Component {
   componentWillMount() {
@@ -9,7 +8,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    const { incrementStep } = this.props;
+    const incrementStep = () => {};
 
     return (
       <div className='homepage' >

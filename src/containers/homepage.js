@@ -5,12 +5,8 @@ import { connect } from 'react-redux';
 import { getQuestions, incrementStep } from '../actions';
 import '../App.css';
 
-function mapStateToProps(state) {
-  return { test: state.test, questions: state.questions }
-}
-
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ getQuestions, incrementStep }, dispatch)
+  return bindActionCreators({ getQuestions }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Homepage);
+export default connect(null, mapDispatchToProps)(Homepage);
