@@ -12,6 +12,10 @@ export const getQuestions = () => {
   return { type: types.GET_QUESTIONS };
 };
 
+export const getAnswers = () => {
+  return { type: types.GET_ANSWERS };
+};
+
 export const incrementStep = () => {
   return { type: types.INCREMENT_STEP };
 };

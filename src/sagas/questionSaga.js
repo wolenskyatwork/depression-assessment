@@ -6,6 +6,13 @@ export default function* watchGetQuestions() {
   yield takeLatest(types.GET_QUESTIONS, getQuestionsSaga);
 }
 
+const getQuestionsCall = () => {
+  return axios.get('http://localhost:4000/api/questions')
+     .then(response => {
+       return response.data.questions;
+     });
+};
+
 export function* getQuestionsSaga() {
   try {
     const questions = yield call(getQuestionsCall);
@@ -14,10 +21,3 @@ export function* getQuestionsSaga() {
     yield put({ type: types.QUESTIONS_ERROR, error });
   }
 }
-
-const getQuestionsCall = () => {
-  return axios.get('http://localhost:4000/api/questions')
-     .then(response => {
-       return response.data.questions;
-     });
-};

@@ -1,14 +1,14 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  questions: [],
+  answers: [],
 };
 
 export default function (state = initialState, action) {
   switch (action.type) {
-    case types.QUESTIONS_SUCCESS:
-      const questions = action.questions;
-      return { ...state, questions };
+    case types.ANSWERS_SUCCESS:
+      const answers = action.answers;
+      return { ...state, answers };
     default:
       return state;
   }

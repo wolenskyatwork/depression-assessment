@@ -1,7 +1,7 @@
 import * as types from '../constants/actionTypes';
 
 const initialState = {
-  step: -1,
+  step: 0,
   score: 0,
 };
 

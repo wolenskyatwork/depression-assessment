@@ -4,8 +4,13 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { incrementStep } from '../actions';
 
+//need to update api to not require questions.questions && answers.answers
 function mapStateToProps(state) {
-  return { test: state.test, questions: state.questions }
+  const step = state.test.step;
+  return {
+    question: state.questions.questions[step],
+    answers: state.answers.answers
+  }
 }
 
 function mapDispatchToProps(dispatch) {
