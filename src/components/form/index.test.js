@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { mount, shallow } from 'enzyme';
 import sinon from 'sinon';
 import Form from './index';
-import FORM from '../signup/form';
+import FORM from '../../constants/form';
 
 describe('<Form />', () => {
   const wrapper = mount(<Form inputs={ FORM } />);

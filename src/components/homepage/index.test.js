@@ -1,18 +1,17 @@
 import React from 'react';
 import { expect } from 'chai';
 import { mount, shallow } from 'enzyme';
-
 import Homepage from './index';
 
-
 describe('<Homepage />', () => {
+  const getQuestionsMockFunction = () => {};
   it('renders correctly', () => {
-    const wrapper = shallow(<Homepage />);
+    const wrapper = shallow(<Homepage getQuestions={ getQuestionsMockFunction }/>);
     expect(wrapper).to.have.lengthOf(1);
   });
 
   it('has a start quiz button', () => {
-    const wrapper = mount(<Homepage />);
+    const wrapper = mount(<Homepage getQuestions={ getQuestionsMockFunction } />);
     const button = wrapper.find('.btn');
 
     expect(wrapper.children(), 'child contents not found').to.not.be.empty;
