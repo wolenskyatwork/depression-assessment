@@ -7,7 +7,8 @@ const initialState = {
 export default function (state = initialState, action) {
   switch (action.type) {
     case types.THERAPISTS_SUCCESS:
-      return state;
+      const therapists = action.therapists;
+      return { state, therapists };
     default:
       return state;
   }

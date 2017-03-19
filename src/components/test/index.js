@@ -1,47 +1,78 @@
 import React from 'react';
 import Btn from '../btn';
+import Dropdown from 'react-dropdown';
 import './index.css';
+import { Link } from 'react-router';
 
 class Test extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      points: 0
+      points: null
     };
+
+    props.getSeverity();
+
+    this.selectAnswer = this.selectAnswer.bind(this);
+    this.incrementStep = this.incrementStep.bind(this);
   }
 
   render() {
-    const { answers, question, incrementStep } = this.props;
+    const {
+      answers,
+      step,
+      questions,
+      score,
+    } = this.props;
+    const { points } = this.state;
+    const question = questions[step];
 
     return (
       <div className='test' >
         <div className='question'>
-          { question || 'fake text until better reloading solution employed' }
+          { question }
 
-          <div>
-            <select>
-              {
-                answers.map((answer, index) => {
-                  return (
-                    <option key={index} value={answer.value}>{answer.text}</option>
-                  );
-                })
-              }
-            </select>
-          </div>
+          <Dropdown
+            options={ answers }
+            onChange={ this.selectAnswer }
+            value={ answers[points] }
+            placeholder="Select an option"
+          />
 
-          <Btn onClick={ incrementStep } text={ 'Next' }/>
+          {
+            step < questions.length - 1 ?
+              <Btn onClick={ this.incrementStep } text={ 'Next' }/> :
+              <Link to='/results'>Find out</Link>
+          }
+
+        </div>
+
+        <div>
+          {`Your score: ${score}`}
         </div>
       </div>
     );
   }
 
-  selectAnswer(answer) {
-    console.log(answer);
+  incrementStep() {
+    const { incrementStep } = this.props;
+    const { points } = this.state;
+    incrementStep(points);
 
     this.setState({
-      points: answer
+      points: null
+    })
+  }
+
+  selectAnswer(answer) {
+    //this hack fixes a bug w/ the library react-dropdown :(
+    if(!Number.isInteger(answer.value)) {
+      answer.value = 0;
+    }
+
+    this.setState({
+      points: answer.value
     });
   }
 }
