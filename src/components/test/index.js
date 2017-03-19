@@ -12,7 +12,9 @@ class Test extends React.Component {
       points: null
     };
 
-    props.getSeverity();
+    this.props.getQuestions();
+    this.props.getAnswers();
+    this.props.getSeverity();
 
     this.selectAnswer = this.selectAnswer.bind(this);
     this.incrementStep = this.incrementStep.bind(this);
@@ -42,8 +44,8 @@ class Test extends React.Component {
 
           {
             step < questions.length - 1 ?
-              <Btn onClick={ this.incrementStep } text={ 'Next' }/> :
-              <Link to='/results'>Find out</Link>
+              <Btn disabled={!points} onClick={ this.incrementStep } text={ 'Next' }/> :
+              <Link disabled={!points} to='/results'>Find out</Link>
           }
 
         </div>

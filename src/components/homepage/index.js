@@ -3,11 +3,6 @@ import { Link } from 'react-router';
 import './index.css';
 
 class Homepage extends React.Component {
-  componentDidMount() {
-    this.props.getQuestions();
-    this.props.getAnswers();
-  }
-
   render() {
     return (
       <div className='homepage' >
