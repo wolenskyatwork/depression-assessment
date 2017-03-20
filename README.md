@@ -2,9 +2,9 @@ Welcome to the Depression Assessment App, were a user can go through a simple qu
 
 # Installation
 
--clone this repo
--clone the [backend repo](https://github.com/wolenskyatwork/depression-api)
--run `npm run start` for both.
+* clone this repo
+* clone the [backend repo](https://github.com/wolenskyatwork/depression-api)
+* run `npm run start` for both.
 
 That's it! Run through the questions to see how you score.
 
