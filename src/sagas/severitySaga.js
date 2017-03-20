@@ -9,14 +9,14 @@ export default function* watchGetSeverity() {
 const getSeverityCall = () => {
   return axios.get('http://localhost:4000/api/severity')
      .then(response => {
-       return response.data.severity;
+       return response.data;
      });
 };
 
 export function* getSeveritySaga() {
   try {
-    const severity = yield call(getSeverityCall);
-    yield put({ type: types.SEVERITY_SUCCESS, severity });
+    const { severity, therapistThreshold } = yield call(getSeverityCall);
+    yield put({ type: types.SEVERITY_SUCCESS, severity, threshold: therapistThreshold });
   } catch (error) {
     yield put({ type: types.SEVERITY_ERROR, error });
   }

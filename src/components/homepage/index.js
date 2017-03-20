@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
+import routes from '../../constants/routes';
 import './index.css';
 
 class Homepage extends React.Component {
@@ -9,7 +10,7 @@ class Homepage extends React.Component {
         <div className='content'>
           <h1 className='content__header'>Hi There</h1>
           <div>{'Dealing with depression can be hard, but you\'re not alone. Take a quick survey and find out now how to get help. Don\'t worry, the survey is quick and totally anonymous.'}</div>
-          <Link to='/test'>Start Here!</Link>
+          <Link to={ routes.TEST }>Start Here!</Link>
         </div>
       </div>
     );

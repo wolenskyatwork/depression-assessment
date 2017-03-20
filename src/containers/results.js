@@ -7,8 +7,9 @@ import { getTherapists } from '../actions';
 function mapStateToProps(state) {
   return {
     score: state.test.score,
-    severity: state.test.severity,
+    severity: state.severity.severity,
     therapists: state.therapists.therapists,
+    threshold: state.severity.threshold,
   }
 }
 

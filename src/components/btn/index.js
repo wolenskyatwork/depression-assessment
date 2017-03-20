@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import classnames from 'classnames';
 import './index.css';
 
 const propTypes = {
@@ -7,10 +8,6 @@ const propTypes = {
   onClick: PropTypes.func,
   text: PropTypes.string,
 };
-
-const defaultProps = {
-  classes: '',
-}
 
 class Btn extends React.Component {
   render() {
@@ -21,11 +18,9 @@ class Btn extends React.Component {
       text,
     } = this.props;
 
-    let buttonClasses = 'btn ' + classes;
-
-    if (disabled) {
-      buttonClasses += ' btn--isDisabled';
-    }
+    const buttonClasses = classnames({
+      'btn--isDisabled': disabled,
+    }, classes, 'btn');
 
     return (
       <div className={ buttonClasses } disabled={ disabled } onClick={ onClick }>
@@ -36,6 +31,5 @@ class Btn extends React.Component {
 }
 
 Btn.propTypes = propTypes;
-Btn.defaultProps = defaultProps;
 
 export default Btn;

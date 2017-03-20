@@ -3,12 +3,14 @@ import questions from './questionReducer';
 import therapists from './therapistReducer';
 import test from './testReducer';
 import answers from './answerReducer';
+import severity from './severityReducer';
 
 const rootReducer = combineReducers({
-  questions,
   answers,
-  therapists,
+  questions,
+  severity,
   test,
+  therapists,
 });
 
 export default rootReducer;

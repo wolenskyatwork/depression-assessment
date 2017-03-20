@@ -1,7 +1,8 @@
 export default class Scorer {
-  constructor(severityInput, scoreInput) {
+  constructor(severityInput, scoreInput, thresholdInput) {
     this.severity = severityInput;
     this.score = scoreInput;
+    this.threshold = thresholdInput;
     this.shouldSeeTherapist = this.getShouldSeeTherapist();
     this.level = this.getLevel();
   }
@@ -17,7 +18,6 @@ export default class Scorer {
   }
 
   getShouldSeeTherapist() {
-      //since this data is coming from api, this should be dependent on api too
-      return this.score > 14;
+    return this.score >= this.threshold;
   }
 }

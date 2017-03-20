@@ -11,13 +11,6 @@
   cursor: pointer;
 }
 
-.btn--dismiss {
-  border: none;
-  height: 70px;
-  padding: 10px;
-  width: 70px;
-}
-
 .btn--isDisabled {
   background-color: #C5BECE;
   border: none;

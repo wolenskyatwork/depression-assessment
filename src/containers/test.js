@@ -2,9 +2,8 @@ import React from 'react';
 import Test from '../components/test';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { incrementStep, getSeverity, getQuestions, getAnswers } from '../actions';
+import { incrementStep, getSeverity, getQuestions, getAnswers, addPoints } from '../actions';
 
-//need to update api to not require questions.questions && answers.answers
 function mapStateToProps(state) {
   return {
     answers: state.answers.answers,
@@ -15,7 +14,7 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ incrementStep, getSeverity, getQuestions, getAnswers  }, dispatch)
+  return bindActionCreators({ incrementStep, getSeverity, getQuestions, getAnswers, addPoints  }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Test);

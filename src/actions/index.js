@@ -24,6 +24,10 @@ export const getTherapists = () => {
   return { type: types.GET_THERAPISTS };
 };
 
-export const incrementStep = (points) => {
-  return { type: types.INCREMENT_STEP, points };
+export const addPoints = points => {
+  return { type: types.ADD_POINTS, points };
+};
+
+export const incrementStep = () => {
+  return { type: types.INCREMENT_STEP };
 };

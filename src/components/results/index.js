@@ -6,9 +6,14 @@ class Results extends React.Component {
   constructor(props) {
     super(props);
 
-    const {severity, score, getTherapists} = props;
+    const {
+      getTherapists,
+      score,
+      severity,
+      threshold, 
+    } = props;
 
-    this.scorer = new Scorer(severity, score);
+    this.scorer = new Scorer(severity, score, threshold);
 
     if(this.scorer.shouldSeeTherapist) {
       getTherapists();
@@ -39,6 +44,8 @@ class Results extends React.Component {
     return (
       <div className='results'>
         Results
+
+        <div>Your score{this.props.score}</div>
         <div>{`You scored: ${this.scorer.level}`}</div>
         { this.renderTherapists() }
       </div>

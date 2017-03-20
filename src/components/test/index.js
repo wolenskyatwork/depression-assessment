@@ -1,8 +1,9 @@
 import React from 'react';
 import Btn from '../btn';
-import Dropdown from 'react-dropdown';
-import './index.css';
 import { Link } from 'react-router';
+import classnames from 'classnames';
+import routes from '../../constants/routes';
+import './index.css';
 
 class Test extends React.Component {
   constructor(props) {
@@ -15,17 +16,13 @@ class Test extends React.Component {
     this.props.getQuestions();
     this.props.getAnswers();
     this.props.getSeverity();
-
-    this.selectAnswer = this.selectAnswer.bind(this);
-    this.incrementStep = this.incrementStep.bind(this);
-  }
+}
 
   render() {
     const {
       answers,
       step,
       questions,
-      score,
     } = this.props;
     const { points } = this.state;
     const question = questions[step];
@@ -37,8 +34,12 @@ class Test extends React.Component {
             <div className='question'>{ question }</div>
 
             { answers.map((answer, index) => {
+              const answerClasses = classnames({
+                selected: index === points
+              }, 'answer');
+
               return <div
-                className={`answer ${index === points ? 'selected' : '' }`} //TODO: break into component that can handle this as a prop
+                className={answerClasses}
                 key={index}
                 onClick={ () => this.selectAnswer(answer.value) }
                 >
@@ -47,12 +48,12 @@ class Test extends React.Component {
             })}
 
           </div>
-
+          <div>Your score{this.props.score}</div>
           <div className="action_wrapper">
             {
               step < questions.length - 1 ?
-                <Btn disabled={points == null} onClick={ this.incrementStep } text={ 'Next' }/> :
-                <Link disabled={points == null} to='/results'>Find out</Link>
+                <Btn disabled={points == null} onClick={ this.submitAnswer } text={ 'Next' }/> :
+                <Link onClick={ this.submitTest } disabled={points == null} to={ routes.RESULTS }>Find out</Link>
             }
           </div>
         </div>
@@ -60,17 +61,25 @@ class Test extends React.Component {
     );
   }
 
-  incrementStep() {
-    const { incrementStep } = this.props;
+  submitAnswer = () => {
+    const { incrementStep, addPoints } = this.props;
     const { points } = this.state;
-    incrementStep(points);
+    incrementStep();
+    addPoints(points);
 
     this.setState({
       points: null
     })
   }
 
-  selectAnswer(answer) {
+  submitTest = () => {
+    const { addPoints } = this.props;
+    const { points } = this.state;
+
+    addPoints(points);
+  }
+
+  selectAnswer = answer => {
     this.setState({
       points: answer
     });
