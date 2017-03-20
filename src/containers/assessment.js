@@ -1,5 +1,5 @@
 import React from 'react';
-import Test from '../components/test';
+import Assessment from '../components/assessment';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import {
@@ -8,15 +8,15 @@ import {
   getQuestions,
   getSeverity,
   incrementStep,
-  resetTest, 
+  resetAssessment,
 } from '../actions';
 
 function mapStateToProps(state) {
   return {
     answers: state.answers.answers,
     questions: state.questions.questions,
-    score: state.test.score,
-    step: state.test.step,
+    score: state.assessment.score,
+    step: state.assessment.step,
   }
 }
 
@@ -27,8 +27,8 @@ function mapDispatchToProps(dispatch) {
     getQuestions,
     getSeverity,
     incrementStep,
-    resetTest,
+    resetAssessment,
   }, dispatch)
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Test);
+export default connect(mapStateToProps, mapDispatchToProps)(Assessment);

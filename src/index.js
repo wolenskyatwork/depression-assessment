@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { Router, Route, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import Homepage from './components/homepage';
-import Test from './containers/test';
+import Assessment from './containers/assessment';
 import Results from './containers/results';
 import configureStore from './store/configureStore';
 import routes from './constants/routes';
@@ -16,7 +16,7 @@ ReactDOM.render(
     <Router history={browserHistory}>
       <Route path={ routes.HOME } component={ Homepage } />
       <Route path={ routes.RESULTS } component={ Results } />
-      <Route path={ routes.TEST } component={ Test } />
+      <Route path={ routes.ASSESSMENT } component={ Assessment } />
     </Router>
   </Provider>,
   document.getElementById('root')

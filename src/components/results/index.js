@@ -1,5 +1,5 @@
 import React from 'react';
-import Scorer from '../models/scorer';
+import Scorer from '../../lib/scorer';
 import { Link } from 'react-router';
 import routes from '../../constants/routes'
 import './index.css';
@@ -39,7 +39,7 @@ class Results extends React.Component {
         <div className='results__therapists'>
           { therapists.map((therapist, index) => {
             return (
-              <div className='results__therapist btn' key={index} onClick={this.alertUser}>{therapist.name}</div>
+              <div className='results__therapist btn' key={index} onClick={ this.alertUser }>{ therapist.name }</div>
             );
           })}
         </div>
@@ -54,12 +54,12 @@ class Results extends React.Component {
           { this.scorer ?
             <div>
               <h1>{`You scored ${this.scorer.level}.`}</h1>
-              <h2 className='results__score'>{this.scorer.shouldSeeTherapist ? therapistText : otherText }</h2>
+              <h2 className='results__score'>{ this.scorer.shouldSeeTherapist ? therapistText : otherText }</h2>
               { this.renderTherapists() }
               </div> :
             <div>
-              <h2>{emptyResultsText}</h2>
-              <Link className='btn btn--centered' to={routes.TEST}>Start test</Link>
+              <h2>{ emptyResultsText }</h2>
+              <Link className='btn btn--centered' to={ routes.ASSESSMENT }>Start test</Link>
             </div>
           }
         </div>

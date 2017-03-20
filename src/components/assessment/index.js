@@ -5,7 +5,7 @@ import classnames from 'classnames';
 import routes from '../../constants/routes';
 import './index.css';
 
-class Test extends React.Component {
+class Assessment extends React.Component {
   constructor(props) {
     super(props);
 
@@ -19,7 +19,7 @@ class Test extends React.Component {
   }
 
   componentWillMount() {
-    this.props.resetTest();
+    this.props.resetAssessment();
   }
 
   render() {
@@ -35,7 +35,7 @@ class Test extends React.Component {
     }, 'btn btn--centered');
 
     return (
-      <div className='test page_wrapper'>
+      <div className='assessment page_wrapper'>
         <div className='content' >
           <div className='question_wrapper'>
             <div className='question'>{ question }</div>
@@ -66,7 +66,7 @@ class Test extends React.Component {
                 <Link
                   className={linkClasses}
                   disabled={points == null}
-                  onClick={ this.submitTest }
+                  onClick={ this.submitAssessment }
                   to={ routes.RESULTS }
                 >Find out</Link>
             }
@@ -87,7 +87,7 @@ class Test extends React.Component {
     });
   }
 
-  submitTest = () => {
+  submitAssessment = () => {
     const { addPoints } = this.props;
     const { points } = this.state;
 
@@ -101,4 +101,4 @@ class Test extends React.Component {
   }
 }
 
-export default Test;
+export default Assessment;

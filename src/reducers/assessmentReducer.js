@@ -13,7 +13,7 @@ export default function (state = initialState, action) {
     case types.ADD_POINTS:
       const score = state.score + action.points;
       return { ...state, score };
-    case types.RESET_TEST:
+    case types.RESET_ASSESSMENT:
       return { ...initialState };
     default:
       return state;

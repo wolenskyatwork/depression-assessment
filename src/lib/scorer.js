@@ -3,7 +3,7 @@ export default class Scorer {
     this.severity = severityInput;
     this.score = scoreInput;
     this.threshold = thresholdInput;
-    this.shouldSeeTherapist = this.getShouldSeeTherapist();
+    this.shouldSeeTherapist = this.score >= this.threshold;
     this.level = this.getLevel();
   }
 
@@ -15,9 +15,5 @@ export default class Scorer {
       };
     });
     return level.text;
-  }
-
-  getShouldSeeTherapist() {
-    return this.score >= this.threshold;
   }
 }

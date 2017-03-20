@@ -1,5 +1,5 @@
 export default {
   HOME: '/',
-  TEST: '/test',
+  ASSESSMENT: '/assessment',
   RESULTS: '/results',
 };
