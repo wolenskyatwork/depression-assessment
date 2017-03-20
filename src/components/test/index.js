@@ -30,12 +30,15 @@ class Test extends React.Component {
     } = this.props;
     const { points } = this.state;
     const question = questions[step];
+    const linkClasses = classnames({
+      'btn--isDisabled': points == null
+    }, 'btn btn--centered');
 
     return (
-      <div className='test content' >
-        <div className='question_content'>
+      <div className='test page_wrapper'>
+        <div className='content' >
           <div className='question_wrapper'>
-            <div className='question title'>{ question }</div>
+            <div className='question'>{ question }</div>
 
             { answers.map((answer, index) => {
               const answerClasses = classnames({
@@ -55,9 +58,13 @@ class Test extends React.Component {
           <div className="action_wrapper">
             {
               step < questions.length - 1 ?
-                <Btn disabled={points == null} onClick={ this.submitAnswer } text={ 'Next' }/> :
+                <Btn
+                  centered
+                  disabled={points == null}
+                  onClick={ this.submitAnswer }
+                  text={ 'Next' }/> :
                 <Link
-                  className='btn'
+                  className={linkClasses}
                   disabled={points == null}
                   onClick={ this.submitTest }
                   to={ routes.RESULTS }

@@ -15,6 +15,8 @@ Optimization to stateless compmonents!
 
 When to reuse components?
 
+Navigation was interesting in terms of how to handle back button, and if a user tried to just hit the results page.
+
 --ADD decision making process for which data came from the API
 -- When calls to the API are actualy made
 

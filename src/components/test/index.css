@@ -4,6 +4,7 @@
 
 .question {
   margin-bottom: 20px;
+  font-size: 40px;
 }
 
 .question_wrapper {
@@ -20,9 +21,19 @@
 }
 
 .answer:hover {
-  background-color: purple;
+  background-color: #43AA8B;
   cursor: pointer;
 }
  .answer.selected {
-   background-color: gray;
+   background-color: #B2B09B;
+ }
+
+ @media only screen and (max-width: 500px) {
+   .question {
+     font-size: 30px;
+   }
+
+   .answer {
+     font-size: 20px;
+   }
  }

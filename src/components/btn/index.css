@@ -1,20 +1,32 @@
 .btn {
   border-radius: 4px;
   border: 1px solid gray;
+  color: black;
+  display: flex;
   font-size: 30px;
   margin-bottom: 6px;
   padding: 10px;
   width: 100%;
-  color: black;
 }
 
 .btn:hover:not(.btn--isDisabled) {
-  background-color: purple;
+  background-color: #43AA8B;
+  color: white;
   cursor: pointer;
 }
 
 .btn--isDisabled {
-  background-color: #C5BECE;
+  background-color: #B2B09B;
   border: none;
-  color: #D4CFDB;
+  color: gray;
+}
+
+.btn--centered {
+  justify-content: center;
+}
+
+@media only screen and (max-width: 500px) {
+  .btn {
+    font-size: 20px;
+  }
 }

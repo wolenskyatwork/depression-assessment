@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import './index.css';
 
 const propTypes = {
+  centered: PropTypes.bool,
   classes: PropTypes.string,
   disabled: PropTypes.bool,
   onClick: PropTypes.func,
@@ -12,6 +13,7 @@ const propTypes = {
 class Btn extends React.Component {
   render() {
     const {
+      centered,
       classes,
       disabled,
       onClick,
@@ -20,6 +22,7 @@ class Btn extends React.Component {
 
     const buttonClasses = classnames({
       'btn--isDisabled': disabled,
+      'btn--centered': centered,
     }, classes, 'btn');
 
     return (

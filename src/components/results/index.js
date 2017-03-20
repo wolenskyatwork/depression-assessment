@@ -49,18 +49,20 @@ class Results extends React.Component {
 
   render() {
     return (
-      <div className='results content'>
-      { this.scorer ?
-        <div>
-          <h1>{`You scored ${this.scorer.level}.`}</h1>
-          <h2 className='results__score'>{this.scorer.shouldSeeTherapist ? therapistText : otherText }</h2>
-          { this.renderTherapists() }
-          </div> :
-        <div>
-          <h2>{emptyResultsText}</h2>
-          <Link className='btn' to={routes.TEST}>Start test</Link>
+      <div className='results page_wrapper'>
+        <div className='content'>
+          { this.scorer ?
+            <div>
+              <h1>{`You scored ${this.scorer.level}.`}</h1>
+              <h2 className='results__score'>{this.scorer.shouldSeeTherapist ? therapistText : otherText }</h2>
+              { this.renderTherapists() }
+              </div> :
+            <div>
+              <h2>{emptyResultsText}</h2>
+              <Link className='btn btn--centered' to={routes.TEST}>Start test</Link>
+            </div>
+          }
         </div>
-      }
       </div>
     );
   }
