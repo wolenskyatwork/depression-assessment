@@ -16,7 +16,11 @@ class Test extends React.Component {
     this.props.getQuestions();
     this.props.getAnswers();
     this.props.getSeverity();
-}
+  }
+
+  componentWillMount() {
+    this.props.resetTest();
+  }
 
   render() {
     const {
@@ -77,11 +81,10 @@ class Test extends React.Component {
   }
 
   submitTest = () => {
-    const { addPoints, resetTest } = this.props;
+    const { addPoints } = this.props;
     const { points } = this.state;
 
     addPoints(points);
-    resetTest();
   }
 
   selectAnswer = answer => {

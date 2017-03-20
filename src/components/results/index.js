@@ -1,7 +1,9 @@
 import React from 'react';
 import Scorer from '../models/scorer';
+import { Link } from 'react-router';
+import routes from '../../constants/routes'
 import './index.css';
-import { therapistText, otherText } from './text';
+import { therapistText, otherText, emptyResultsText } from './text';
 
 class Results extends React.Component {
   constructor(props) {
@@ -14,10 +16,14 @@ class Results extends React.Component {
       threshold,
     } = props;
 
-    this.scorer = new Scorer(severity, score, threshold);
+    this.scorer = null;
 
-    if(this.scorer.shouldSeeTherapist) {
-      getTherapists();
+    if(score != null) {
+      this.scorer = new Scorer(severity, score, threshold);
+
+      if(this.scorer.shouldSeeTherapist) {
+        getTherapists();
+      }
     }
 }
 
@@ -44,9 +50,17 @@ class Results extends React.Component {
   render() {
     return (
       <div className='results content'>
-        <h1>{`You scored ${this.scorer.level}.`}</h1>
-        <h2 className='results__score'>{this.scorer.shouldSeeTherapist ? therapistText : otherText }</h2>
-        { this.renderTherapists() }
+      { this.scorer ?
+        <div>
+          <h1>{`You scored ${this.scorer.level}.`}</h1>
+          <h2 className='results__score'>{this.scorer.shouldSeeTherapist ? therapistText : otherText }</h2>
+          { this.renderTherapists() }
+          </div> :
+        <div>
+          <h2>{emptyResultsText}</h2>
+          <Link className='btn' to={routes.TEST}>Start test</Link>
+        </div>
+      }
       </div>
     );
   }

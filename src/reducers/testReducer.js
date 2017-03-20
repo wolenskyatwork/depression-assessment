@@ -2,7 +2,7 @@ import * as types from '../constants/actionTypes';
 
 const initialState = {
   step: 0,
-  score: 0,
+  score: null,
 };
 
 export default function (state = initialState, action) {
