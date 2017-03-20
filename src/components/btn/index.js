@@ -28,9 +28,9 @@ class Btn extends React.Component {
     }
 
     return (
-      <button className={ buttonClasses } disabled={ disabled } onClick={ onClick }>
+      <div className={ buttonClasses } disabled={ disabled } onClick={ onClick }>
         { text }
-      </button>
+      </div>
     );
   }
 }

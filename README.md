@@ -1,10 +1,21 @@
-Because front-end libraries are limited to React, Webpack, Bootstrap, and JQuery,
-this app uses the App component as the highest level component which maintains the state.
+Welcome to the Depression Assessment App, were a user can go through a simple quiz to see if they should reach out to a therapist for help dealing with depression.
 
-I focused most heavily on creating a reusable form component when planning and implementing this app.
+To install, clone this repo and the backend repo, located [here](https://github.com/wolenskyatwork/depression-api).
+Run 'npm run start' to get this project going, localhost:3000 will open in your default browser.
 
-The general idea is that the App component maintains a state for the entire app, and the form component deals with its own state
-while the user in interacting w/ the form, but has not submitted. After submit, the App component processes its state given the new information.
+Run through the questions to see how you score.
 
+Some notes on organization:
+
+State is managed with Redux and Redux-Saga. Redux-Saga handles making all async calls to the backend.
+
+Containers/ dumb components
+
+Optimization to stateless compmonents!
+
+--ADD decision making process for which data came from the API
+-- When calls to the API are actualy made
+
+Note: Accessibility is not taken into account here - Decision to use <div> vs <button> component was tough.
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app). This comes with basic functionality and webpack, react, and testing.

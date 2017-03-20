@@ -31,27 +31,30 @@ class Test extends React.Component {
     const question = questions[step];
 
     return (
-      <div className='test' >
-        <div className='question'>
-          { question }
+      <div className='test content' >
+        <div className='question_content'>
+          <div className='question_wrapper'>
+            <div className='question'>{ question }</div>
 
-          <Dropdown
-            options={ answers }
-            onChange={ this.selectAnswer }
-            value={ answers[points] }
-            placeholder="Select an option"
-          />
+            { answers.map((answer, index) => {
+              return <div
+                className={`answer ${index === points ? 'selected' : '' }`} //TODO: break into component that can handle this as a prop
+                key={index}
+                onClick={ () => this.selectAnswer(answer.value) }
+                >
+                  {answer.label}
+                </div>
+            })}
 
-          {
-            step < questions.length - 1 ?
-              <Btn disabled={!points} onClick={ this.incrementStep } text={ 'Next' }/> :
-              <Link disabled={!points} to='/results'>Find out</Link>
-          }
+          </div>
 
-        </div>
-
-        <div>
-          {`Your score: ${score}`}
+          <div className="action_wrapper">
+            {
+              step < questions.length - 1 ?
+                <Btn disabled={points == null} onClick={ this.incrementStep } text={ 'Next' }/> :
+                <Link disabled={points == null} to='/results'>Find out</Link>
+            }
+          </div>
         </div>
       </div>
     );
@@ -68,13 +71,8 @@ class Test extends React.Component {
   }
 
   selectAnswer(answer) {
-    //this hack fixes a bug w/ the library react-dropdown :(
-    if(!Number.isInteger(answer.value)) {
-      answer.value = 0;
-    }
-
     this.setState({
-      points: answer.value
+      points: answer
     });
   }
 }
