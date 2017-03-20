@@ -31,7 +31,7 @@ class Test extends React.Component {
       <div className='test content' >
         <div className='question_content'>
           <div className='question_wrapper'>
-            <div className='question'>{ question }</div>
+            <div className='question title'>{ question }</div>
 
             { answers.map((answer, index) => {
               const answerClasses = classnames({
@@ -42,18 +42,22 @@ class Test extends React.Component {
                 className={answerClasses}
                 key={index}
                 onClick={ () => this.selectAnswer(answer.value) }
-                >
-                  {answer.label}
+                >{answer.label}
                 </div>
             })}
 
           </div>
-          <div>Your score{this.props.score}</div>
+
           <div className="action_wrapper">
             {
               step < questions.length - 1 ?
                 <Btn disabled={points == null} onClick={ this.submitAnswer } text={ 'Next' }/> :
-                <Link onClick={ this.submitTest } disabled={points == null} to={ routes.RESULTS }>Find out</Link>
+                <Link
+                  className='btn'
+                  disabled={points == null}
+                  onClick={ this.submitTest }
+                  to={ routes.RESULTS }
+                >Find out</Link>
             }
           </div>
         </div>
@@ -69,14 +73,15 @@ class Test extends React.Component {
 
     this.setState({
       points: null
-    })
+    });
   }
 
   submitTest = () => {
-    const { addPoints } = this.props;
+    const { addPoints, resetTest } = this.props;
     const { points } = this.state;
 
     addPoints(points);
+    resetTest();
   }
 
   selectAnswer = answer => {

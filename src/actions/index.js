@@ -31,3 +31,7 @@ export const addPoints = points => {
 export const incrementStep = () => {
   return { type: types.INCREMENT_STEP };
 };
+
+export const resetTest = () => {
+  return { type: types.RESET_TEST };
+}

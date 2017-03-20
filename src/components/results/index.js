@@ -1,6 +1,7 @@
 import React from 'react';
 import Scorer from '../models/scorer';
 import './index.css';
+import { therapistText, otherText } from './text';
 
 class Results extends React.Component {
   constructor(props) {
@@ -10,7 +11,7 @@ class Results extends React.Component {
       getTherapists,
       score,
       severity,
-      threshold, 
+      threshold,
     } = props;
 
     this.scorer = new Scorer(severity, score, threshold);
@@ -29,10 +30,10 @@ class Results extends React.Component {
 
     if(this.scorer.shouldSeeTherapist) {
       return (
-        <div>
+        <div className='results__therapists'>
           { therapists.map((therapist, index) => {
             return (
-              <div key={index} onClick={this.alertUser}>{therapist.name}</div>
+              <div className='results__therapist btn' key={index} onClick={this.alertUser}>{therapist.name}</div>
             );
           })}
         </div>
@@ -42,11 +43,9 @@ class Results extends React.Component {
 
   render() {
     return (
-      <div className='results'>
-        Results
-
-        <div>Your score{this.props.score}</div>
-        <div>{`You scored: ${this.scorer.level}`}</div>
+      <div className='results content'>
+        <h1>{`You scored ${this.scorer.level}.`}</h1>
+        <h2 className='results__score'>{this.scorer.shouldSeeTherapist ? therapistText : otherText }</h2>
         { this.renderTherapists() }
       </div>
     );

@@ -2,7 +2,14 @@ import React from 'react';
 import Test from '../components/test';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { incrementStep, getSeverity, getQuestions, getAnswers, addPoints } from '../actions';
+import {
+  addPoints,
+  getAnswers,
+  getQuestions,
+  getSeverity,
+  incrementStep,
+  resetTest, 
+} from '../actions';
 
 function mapStateToProps(state) {
   return {
@@ -14,7 +21,14 @@ function mapStateToProps(state) {
 }
 
 function mapDispatchToProps(dispatch) {
-  return bindActionCreators({ incrementStep, getSeverity, getQuestions, getAnswers, addPoints  }, dispatch)
+  return bindActionCreators({
+    addPoints,
+    getAnswers,
+    getQuestions,
+    getSeverity,
+    incrementStep,
+    resetTest,
+  }, dispatch)
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Test);
